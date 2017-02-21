@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">3 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,6 +103,16 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="runner.RunCukesTest" hash-for-method="feature(search AIG company)">feature(search AIG company)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="runner.RunCukesTest" hash-for-method="feature(search AXS company)">feature(search AXS company)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="runner.RunCukesTest" hash-for-method="feature(compare EPS prices)">feature(compare EPS prices)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -133,6 +143,26 @@
 (Runs Cucumber Feature)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="feature(search AXS company)">
+                  </a> <!-- feature(search AXS company) -->
+                  <span class="method-name">feature</span>
+                  <span class="parameters">(search AXS company)</span>
+                  <em>
+(Runs Cucumber Feature)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="feature(compare EPS prices)">
+                  </a> <!-- feature(compare EPS prices) -->
+                  <span class="method-name">feature</span>
+                  <span class="parameters">(compare EPS prices)</span>
+                  <em>
+(Runs Cucumber Feature)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
@@ -144,11 +174,19 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
+&lt;suite thread-count=&quot;3&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot; parallel=&quot;tests&quot;&gt;
   &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;testbase.TestBaseClass&quot;/&gt;
   &lt;/listeners&gt;
+  &lt;test name=&quot;retrieveData&quot;&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;glue&quot; value=&quot;desktop&quot;/&gt;
+    &lt;parameter name=&quot;feature&quot; value=&quot;src/test/resources/feature/retrieveData.feature&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;runner.RunCukesTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- retrieveData --&gt;
   &lt;test name=&quot;searchcmp&quot;&gt;
     &lt;parameter name=&quot;glue&quot; value=&quot;desktop&quot;/&gt;
     &lt;parameter name=&quot;feature&quot; value=&quot;src/test/resources/feature/searchcmp.feature&quot;/&gt;
@@ -156,6 +194,13 @@
       &lt;class name=&quot;runner.RunCukesTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- searchcmp --&gt;
+  &lt;test name=&quot;compareEPS&quot;&gt;
+    &lt;parameter name=&quot;glue&quot; value=&quot;desktop&quot;/&gt;
+    &lt;parameter name=&quot;feature&quot; value=&quot;src/test/resources/feature/compareEPS.feature&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;runner.RunCukesTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- compareEPS --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -167,7 +212,13 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
+                <span class="test-name">retrieveData (1 class)</span>
+              </li>
+              <li>
                 <span class="test-name">searchcmp (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">compareEPS (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -201,11 +252,19 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'runner.RunCukesTest')
-data.setCell(0, 3, 68604);
+data.setCell(0, 3, 31741);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'feature')
+data.setCell(1, 2, 'runner.RunCukesTest')
+data.setCell(1, 3, 28125);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'feature')
+data.setCell(2, 2, 'runner.RunCukesTest')
+data.setCell(2, 3, 28080);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -238,16 +297,40 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">runner.RunCukesTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@5090a603)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@37efb550)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpClass(org.testng.TestRunner@5a68b3e0)</span>
+                <span class="method-start">49 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpClass(org.testng.TestRunner@ff9657f)</span>
+                <span class="method-start">84 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">feature(search AXS company)</span>
+                <span class="method-start">645 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">feature(compare EPS prices)</span>
+                <span class="method-start">645 ms</span>
+              </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">feature(search AIG company)</span>
-                <span class="method-start">427 ms</span>
+                <span class="method-start">645 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">69038 ms</span>
+                <span class="method-start">28733 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">28774 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">32403 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

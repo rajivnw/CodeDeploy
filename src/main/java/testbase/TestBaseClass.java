@@ -21,6 +21,13 @@ public class TestBaseClass implements ITestListener, IExecutionListener {
 
 	public TestBaseClass() {
 		System.out.println("in TestBase Class constructor");
+		// if (driver == null) {
+		// System.setProperty("webdriver.chrome.driver",
+		// "drivers/chromedriver.exe");
+		//
+		// driver = new ChromeDriver();
+		//
+		// }
 	}
 
 	public void onStart(ITestContext context) {
@@ -52,6 +59,7 @@ public class TestBaseClass implements ITestListener, IExecutionListener {
 	public WebDriver getDriver() {
 		DriverFactory driverFactory = new DriverFactory();
 		return driverFactory.getDriver();
+
 	}
 
 	public void openWebsite() {
